@@ -261,6 +261,23 @@ section{position:relative}
   .step{min-height:auto;padding:34px 0}
 }
 
+/* ===================== MANIFESTO ===================== */
+.manifesto{background:var(--cream);text-align:center;overflow:hidden}
+.manifesto .wrap{max-width:1000px}
+.manifesto .eyebrow{color:var(--green);justify-content:center}.manifesto .eyebrow::before{display:none}
+.manifesto p.statement{
+  font-family:"Fraunces",serif;font-weight:400;letter-spacing:-.02em;line-height:1.12;
+  font-size:clamp(1.7rem,4.4vw,3.1rem);margin-top:26px;
+}
+.manifesto p.statement b{font-weight:600}
+.manifesto p.statement .hl{font-style:italic;color:var(--green);font-weight:500;
+  background:linear-gradient(transparent 62%,rgba(198,242,78,.5) 62%);padding:0 .06em}
+.manifesto .creed{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+  margin-top:clamp(34px,5vh,48px)}
+.manifesto .creed span{font-size:.82rem;font-weight:600;letter-spacing:.02em;
+  padding:9px 16px;border-radius:100px;background:var(--white);border:1px solid var(--line)}
+.manifesto .creed span i{font-style:normal;color:var(--green)}
+
 /* ===================== UNIVERSAL LEVEL ===================== */
 .level{background:var(--green-deep);color:var(--white);overflow:hidden}
 .level .eyebrow{color:var(--accent)}
@@ -419,8 +436,8 @@ section{position:relative}
       <span class="w"><span class="em">it</span></span>
       <span class="w"><span class="em">one.</span></span>
     </h1>
-    <p class="sub">Every court in Bali. Every open match. And one level that
-      finally counts on every platform you already play on.</p>
+    <p class="sub">Every court. Every open match. One level that counts everywhere —
+      on an open platform built for players and owned by no one but the game.</p>
 
     <div class="hero-actions">
       <div class="stores">
@@ -487,9 +504,10 @@ section{position:relative}
 <section class="solution sec">
   <div class="wrap">
     <span class="eyebrow reveal">The fix</span>
-    <h2 class="serif reveal d1" style="max-width:20ch;margin-top:14px">One app that does the job of all of them.</h2>
-    <p class="lead reveal d2 mt">Book any court, find every open match, carry one level everywhere,
-       and actually meet the people you play with. Here's how it feels.</p>
+    <h2 class="serif reveal d1" style="max-width:20ch;margin-top:14px">One platform that does the job of all of them.</h2>
+    <p class="lead reveal d2 mt">Book any court on any system, find every open match, carry one level
+       everywhere, and actually meet the people you play with. We don't compete with the
+       platforms — we connect them. Here's how it feels.</p>
 
     <div class="sticky-stage">
       <!-- STEPS -->
@@ -567,11 +585,28 @@ section{position:relative}
   </div>
 </section>
 
+<!-- ============================ MANIFESTO ============================ -->
+<section class="manifesto sec">
+  <div class="wrap">
+    <span class="eyebrow reveal">Why we built this</span>
+    <p class="statement reveal d1">Every booking app wants to <b>own</b> padel in Bali.
+       We think the game belongs to the <span class="hl">players</span> —
+       so we built one open platform that connects <b>every venue, every match and every level</b>,
+       and is owned by <span class="hl">no platform at all</span>.</p>
+    <div class="creed reveal d2">
+      <span><i>Open</i> to every player</span>
+      <span>Book on <i>any</i> system</span>
+      <span><i>One</i> standard level</span>
+      <span>Owned by <i>no</i> platform</span>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ UNIVERSAL LEVEL ============================ -->
 <section class="level sec">
   <div class="wrap">
     <span class="eyebrow reveal">The thing nobody else fixes</span>
-    <h2 class="serif reveal d1">One level. <em>Recognised everywhere you play.</em></h2>
+    <h2 class="serif reveal d1">One standard. <em>Approved by the people who run the sport.</em></h2>
 
     <div class="ba">
       <div class="card before reveal d1">
@@ -592,18 +627,20 @@ section{position:relative}
         <div class="cap">After</div>
         <h3 class="serif">4.32</h3>
         <div class="scale">World Padel Rating · 0–21</div>
-        <p>One honest number, built from real match results and recognised across every
-           platform in the app. It follows you from Canggu to anywhere.</p>
+        <p>One honest number, built from real match results — independent of any single
+           platform and recognised across all of them. It follows you from Canggu to anywhere.</p>
         <span class="wpr-tag">Powered by World Padel Rating</span>
       </div>
     </div>
 
     <div class="level-foot">
-      <p class="endorse">Endorsed by the national federations and built on the World Padel Rating
-        system — the same level-based standard used by associations worldwide.</p>
+      <p class="endorse">A single standard, approved by the national federations and the Asia Pacific
+        Padel Tour, and built on World Padel Rating — not controlled by any booking platform.</p>
       <div class="fed-logos">
         <!-- PARTNER LOGO: World Padel Rating (WPR) — replace with official logo -->
         <span class="logo-ph"><span class="gl">WPR</span><span class="sub">World Padel Rating</span></span>
+        <!-- PARTNER LOGO: Asia Pacific Padel Tour (APPT) — replace with official logo -->
+        <span class="logo-ph">APPT<span class="sub">Asia Pacific Padel Tour</span></span>
         <!-- PARTNER LOGO: Padel Indonesia federation — replace with official logo -->
         <span class="logo-ph">Padel&nbsp;Indonesia<span class="sub">National Federation</span></span>
         <!-- PARTNER LOGO: Thailand Padel Association — replace with official logo -->
@@ -618,8 +655,8 @@ section{position:relative}
   <div class="wrap">
     <span class="eyebrow reveal">Plays well with others</span>
     <h2 class="serif reveal d1">Every platform. <em>One app.</em></h2>
-    <p class="lead reveal d2 mt">We don't replace the platforms you book on — we bring them together,
-       and add the level and community layer on top.</p>
+    <p class="lead reveal d2 mt">We don't replace the platforms you book on — we bring them together
+       on neutral ground, and add the one level and the community that belong to every player.</p>
   </div>
 
   <!-- PLATFORM LOGOS: Playtomic, Matchi, Book & Go, Taykus, Jungle Padel, Island Padel — replace text chips -->
@@ -729,8 +766,8 @@ section{position:relative}
       <!-- TPS LOGO: replace with TPS Logotype-05.png -->
       <div class="mark-lg reveal">tps</div>
       <h2 class="reveal d1">Stop switching apps. <em>Start&nbsp;playing.</em></h2>
-      <p class="reveal d2">One app for every court in Bali, every open match, and one level that
-         counts everywhere. The Padel Society is free to download.</p>
+      <p class="reveal d2">One open platform for every court in Bali, every open match, and one
+         level that counts everywhere — built for players, owned by no platform. Free to download.</p>
       <div class="stores reveal d3">
         <a class="store" href="#" aria-label="Download on the App Store">
           <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17.4c-.5 1.2-.8 1.7-1.5 2.7-.9 1.4-2.3 3.1-3.9 3.1-1.5 0-1.8-1-3.8-1-1.9 0-2.3 1-3.8 1-1.6 0-2.8-1.5-3.8-2.9C.6 17.2.3 12.6 2 9.9c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 2 8z"/></svg>
