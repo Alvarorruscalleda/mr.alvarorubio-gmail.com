@@ -3,22 +3,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Padel Society · Bali — One app for every court</title>
-<meta name="description" content="Every court in Bali. Every open match. One level that counts on every platform. The Padel Society — backed by the federations, recognised across every platform." />
+<title>The Padel Society · Bali — One platform. One level. Every court.</title>
+<meta name="description" content="One open platform for every player in Bali. Book any venue on any system, join every open match, and play to one standard level — approved by the federations and APPT, owned by no platform." />
 
 <!--
   =======================================================================
-  THE PADEL SOCIETY — BALI LANDING
+  THE PADEL SOCIETY — BALI LANDING  ·  v3 (awwwards pass)
   Single self-contained file · CSS + vanilla JS only · no libraries
   -----------------------------------------------------------------------
-  PLACEHOLDERS TO REPLACE WITH REAL ASSETS:
+  PLACEHOLDERS TO REPLACE WITH REAL BRAND ASSETS:
   - TPS LOGO:        /Users/Alvaro/Desktop/🎾The padel society/02 TPS - Brand & Logos/New Logo TPS (2026)/TPS Logotype-05.png
-  - BRAND GUIDELINES: accent colour + exact green to be confirmed from brand kit
-  - HERO VIDEO:      Bali padel cinematic loop (muted, autoplay)
-  - APP SCREENSHOTS: iPhone mockups (court booking / matches / level / community)
+  - BRAND GUIDELINES: confirm exact accent + greens (currently Society Green #1a7a4a + lime #c6f24e placeholder)
+  - HERO VIDEO:      Bali padel cinematic loop (muted, autoplay)  — animated gradient stands in
+  - APP SCREENSHOTS: iPhone mockups (booking / matches / level / community)
   - PARTNER LOGOS:   WPR, APPT, Padel Indonesia, Thailand Padel Association
   - PLATFORM LOGOS:  Playtomic, Matchi, Book & Go, Taykus, Jungle Padel, Island Padel
   - EXPLAINER VIDEO: 60-second product film
+  - COMMUNITY PHOTOS: real Bali community shots
   =======================================================================
 -->
 
@@ -29,176 +30,172 @@
 <style>
 /* ============================ TOKENS ============================ */
 :root{
-  --ink:#121212;
+  --ink:#0e0e0e;
   --ink-2:#1a1a1a;
   --green:#1a7a4a;          /* Society Green */
-  --green-deep:#0c3a24;
+  --green-deep:#0a3221;
   --accent:#c6f24e;         /* electric lime — PLACEHOLDER accent, confirm from brand guidelines */
-  --cream:#f5f1e8;
+  --cream:#f3efe5;
   --paper:#faf8f2;
   --white:#ffffff;
-  --muted:rgba(18,18,18,.58);
-  --line:rgba(18,18,18,.12);
+  --muted:rgba(14,14,14,.58);
+  --line:rgba(14,14,14,.12);
   --ease:cubic-bezier(.22,1,.36,1);
-  --maxw:1200px;
+  --maxw:1240px;
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
+html.lenis-ready{scroll-behavior:smooth}
 body{
   font-family:"Inter",system-ui,-apple-system,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.55;
-  overflow-x:hidden;
+  background:var(--paper);color:var(--ink);line-height:1.55;overflow-x:hidden;
   font-feature-settings:"ss01","cv01";
 }
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--accent);color:var(--ink)}
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,52px)}
 .serif{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
 
-.eyebrow{
-  font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:.6em;color:var(--green);
-}
+/* global grain */
+.grain{position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.6em;color:var(--green)}
 .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.6}
 
-/* ============================ NAV ============================ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:90;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px clamp(20px,5vw,48px);
-  transition:background .4s var(--ease),backdrop-filter .4s,padding .4s;
-}
-.nav.scrolled{
-  background:rgba(250,248,242,.82);backdrop-filter:blur(14px) saturate(1.4);
-  border-bottom:1px solid var(--line);padding:12px clamp(20px,5vw,48px);
-}
-/* TPS LOGO placeholder — replace text wordmark with TPS Logotype-05.png -->*/
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em}
-.brand .mark{
-  width:30px;height:30px;border-radius:8px;flex:0 0 auto;
-  background:var(--ink);color:var(--accent);
-  display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:900;font-size:15px;
-}
-.brand .name{font-size:.95rem}
-.brand .name b{font-weight:700}
-.nav.scrolled .brand,.brand{color:var(--ink)}
-.nav-cta{
-  font-size:.85rem;font-weight:600;padding:10px 18px;border-radius:100px;
-  background:var(--ink);color:var(--white);transition:transform .3s var(--ease),background .3s;
-}
-.nav-cta:hover{transform:translateY(-2px);background:var(--green)}
-@media(max-width:560px){.nav-cta{display:none}}
+/* ============================ PRELOADER ============================ */
+.pre{position:fixed;inset:0;z-index:200;background:var(--ink);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  /* CSS fallback reveal in case JS is disabled */
+  animation:preFallback 0s linear 2.6s forwards}
+@keyframes preFallback{to{opacity:0;visibility:hidden;pointer-events:none}}
+.pre .inner{text-align:center;overflow:hidden}
+.pre .pmark{font-family:"Fraunces",serif;font-weight:900;font-size:clamp(2.4rem,7vw,4.4rem);
+  color:var(--accent);line-height:1;letter-spacing:-.02em}
+.pre .pname{font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:14px}
+.pre .pcount{position:absolute;bottom:28px;right:clamp(20px,5vw,52px);
+  font-family:"Fraunces",serif;font-size:clamp(2.5rem,9vw,5rem);color:rgba(255,255,255,.14);line-height:1}
+.pre .pbar{position:absolute;bottom:0;left:0;height:2px;background:var(--accent);width:0%}
+.pre.done{transform:translateY(-100%);transition:transform .9s var(--ease);visibility:hidden}
+html.preloading{overflow:hidden}
+
+/* ============================ CURSOR ============================ */
+.cur,.cur-r{position:fixed;top:0;left:0;z-index:150;pointer-events:none;border-radius:50%;
+  transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:difference}
+.cur{width:7px;height:7px;background:#fff}
+.cur-r{width:38px;height:38px;border:1px solid rgba(255,255,255,.6);transition:width .25s var(--ease),height .25s var(--ease),background .25s,border-color .25s}
+.cur-r.grow{width:64px;height:64px;background:rgba(255,255,255,.12);border-color:transparent}
+body.has-cursor{cursor:none}
+body.has-cursor a,body.has-cursor button,body.has-cursor [data-cur]{cursor:none}
+@media(hover:none),(pointer:coarse){.cur,.cur-r{display:none!important}}
+
+/* scroll progress */
+.prog{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:130;transition:width .1s linear}
 
 /* ============================ BUTTONS ============================ */
 .stores{display:flex;flex-wrap:wrap;gap:12px}
-.store{
-  display:inline-flex;align-items:center;gap:11px;
-  padding:13px 22px 13px 18px;border-radius:14px;
-  background:var(--ink);color:var(--white);
-  transition:transform .35s var(--ease),box-shadow .35s;
-  will-change:transform;
-}
-.store:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(0,0,0,.55)}
+.store{display:inline-flex;align-items:center;gap:11px;padding:13px 22px 13px 18px;border-radius:14px;
+  background:var(--ink);color:var(--white);transition:transform .35s var(--ease),box-shadow .35s;will-change:transform}
+.store:hover{box-shadow:0 18px 44px -18px rgba(0,0,0,.6)}
 .store svg{width:22px;height:22px;flex:0 0 auto}
 .store .lbl{display:flex;flex-direction:column;line-height:1.1;text-align:left}
 .store .lbl small{font-size:.62rem;opacity:.7;letter-spacing:.04em}
 .store .lbl span{font-size:.98rem;font-weight:600}
-.store.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
-.store.ghost:hover{border-color:var(--ink)}
 
-/* magnetic wrapper */
-.magnetic{display:inline-block;transition:transform .25s var(--ease)}
+/* ============================ NAV ============================ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(20px,5vw,52px);transition:background .4s var(--ease),backdrop-filter .4s,padding .4s,border-color .4s;
+  border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(250,248,242,.78);backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid var(--line);padding:12px clamp(20px,5vw,52px)}
+/* TPS LOGO placeholder — replace mark + wordmark with TPS Logotype-05.png */
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;color:var(--white);transition:color .4s}
+.nav.scrolled .brand{color:var(--ink)}
+.brand .mark{width:30px;height:30px;border-radius:8px;flex:0 0 auto;background:var(--accent);color:var(--ink);
+  display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:900;font-size:15px}
+.brand .name{font-size:.95rem}
+.nav-cta{font-size:.85rem;font-weight:600;padding:10px 18px;border-radius:100px;background:var(--accent);color:var(--ink);
+  transition:transform .3s var(--ease)}
+.nav-cta:hover{transform:translateY(-2px)}
+@media(max-width:560px){.nav-cta{display:none}}
 
 /* ============================ HERO ============================ */
-.hero{
-  position:relative;min-height:100svh;display:flex;align-items:flex-end;
-  color:var(--white);overflow:hidden;isolation:isolate;
-  padding-bottom:clamp(40px,7vh,90px);
-}
-/* HERO VIDEO placeholder — animated gradient stands in for Bali padel loop */
-.hero-bg{position:absolute;inset:0;z-index:-2;background:#06140d}
-.hero-bg::before{
-  content:"";position:absolute;inset:-20%;
-  background:
-    radial-gradient(60% 55% at 20% 18%,rgba(26,122,74,.85),transparent 60%),
-    radial-gradient(55% 50% at 85% 30%,rgba(198,242,78,.32),transparent 55%),
-    radial-gradient(70% 60% at 60% 95%,rgba(12,58,36,.95),transparent 60%),
-    linear-gradient(180deg,#08160e,#04100a);
-  animation:drift 22s ease-in-out infinite alternate;
-}
-@keyframes drift{0%{transform:translate3d(-3%,-2%,0) scale(1.05)}100%{transform:translate3d(3%,2%,0) scale(1.12)}}
-.hero-grain{position:absolute;inset:0;z-index:-1;opacity:.5;mix-blend-mode:overlay;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--white);
+  overflow:hidden;isolation:isolate;padding-bottom:clamp(40px,7vh,90px)}
+/* HERO VIDEO placeholder — animated gradient + glow orbs stand in for Bali padel loop */
+.hero-bg{position:absolute;inset:0;z-index:-3;background:#05130c}
+.hero-bg::before{content:"";position:absolute;inset:-25%;
+  background:radial-gradient(60% 55% at 18% 16%,rgba(26,122,74,.9),transparent 60%),
+    radial-gradient(50% 45% at 88% 26%,rgba(198,242,78,.28),transparent 55%),
+    radial-gradient(70% 60% at 60% 100%,rgba(10,50,33,.95),transparent 60%),
+    linear-gradient(180deg,#07180f,#040d08);
+  animation:drift 24s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate3d(-3%,-2%,0) scale(1.05)}100%{transform:translate3d(3%,2%,0) scale(1.13)}}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);z-index:-2;opacity:.5;will-change:transform}
+.orb.a{width:42vw;height:42vw;left:-8vw;top:8vh;background:radial-gradient(circle,rgba(26,122,74,.8),transparent 70%)}
+.orb.b{width:34vw;height:34vw;right:-6vw;bottom:-6vh;background:radial-gradient(circle,rgba(198,242,78,.5),transparent 70%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(4,16,10,.35) 0%,transparent 30%,rgba(4,16,10,.55) 100%)}
+  background:linear-gradient(180deg,rgba(4,13,8,.4) 0%,transparent 32%,rgba(4,13,8,.55) 100%)}
 
-.hero-inner{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+.hero-inner{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,52px)}
 .hero .eyebrow{color:var(--accent);margin-bottom:clamp(18px,3vh,30px)}
-.hero h1{
-  font-family:"Fraunces",serif;font-weight:600;
-  font-size:clamp(2.7rem,8.2vw,6.6rem);line-height:.98;letter-spacing:-.02em;
-  max-width:16ch;margin-bottom:clamp(20px,3vh,30px);
-}
+.hero h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(2.9rem,9vw,7.2rem);
+  line-height:.95;letter-spacing:-.025em;max-width:15ch;margin-bottom:clamp(20px,3vh,30px)}
 .hero h1 .em{font-style:italic;color:var(--accent);font-weight:500}
-/* word stagger — hero is above the fold, intended to play on load */
-.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top}
-.hero h1 .w > span{display:inline-block;transform:translateY(110%);opacity:0;
-  animation:rise .9s var(--ease) forwards}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .02em}
+.hero h1 .w>span{display:inline-block;transform:translateY(112%);opacity:0;animation:rise .95s var(--ease) forwards}
 @keyframes rise{to{transform:translateY(0);opacity:1}}
-.hero p.sub{
-  font-size:clamp(1.02rem,1.7vw,1.32rem);max-width:46ch;color:rgba(255,255,255,.82);
-  margin-bottom:clamp(26px,4vh,38px);opacity:0;animation:fade 1s var(--ease) .9s forwards;
-}
+.hero p.sub{font-size:clamp(1.02rem,1.7vw,1.34rem);max-width:48ch;color:rgba(255,255,255,.84);
+  margin-bottom:clamp(26px,4vh,38px);opacity:0;animation:fade 1s var(--ease) .95s forwards}
 @keyframes fade{to{opacity:1}}
-.hero-actions{opacity:0;animation:fade 1s var(--ease) 1.1s forwards}
+.hero-actions{opacity:0;animation:fade 1s var(--ease) 1.15s forwards}
 
-.hero-trust{display:flex;align-items:center;gap:12px 16px;flex-wrap:wrap;
-  margin-top:clamp(24px,4vh,34px);opacity:0;animation:fade 1s var(--ease) 1.3s forwards}
+.hero-trust{display:flex;align-items:center;gap:12px 16px;flex-wrap:wrap;margin-top:clamp(24px,4vh,34px);
+  opacity:0;animation:fade 1s var(--ease) 1.3s forwards}
 .hero-trust .t-label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 .hero-trust .t-flags{display:flex;gap:7px;flex-wrap:wrap}
 .hero-trust .t-flags span{font-size:.74rem;font-weight:600;color:rgba(255,255,255,.88);
   padding:5px 12px;border:1px solid rgba(255,255,255,.2);border-radius:100px;white-space:nowrap}
 .hero-trust .t-flags span.endorse{border-color:rgba(198,242,78,.45);color:var(--accent)}
 
-.hero-stats{
-  display:flex;gap:clamp(22px,5vw,60px);margin-top:clamp(28px,5vh,44px);flex-wrap:wrap;
-  opacity:0;animation:fade 1s var(--ease) 1.45s forwards;
-}
-.hero-stats .stat .n{font-family:"Fraunces",serif;font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:600;line-height:1}
-.hero-stats .stat .l{font-size:.78rem;letter-spacing:.04em;color:rgba(255,255,255,.62);margin-top:6px}
+.hero-stats{display:flex;gap:clamp(22px,5vw,64px);margin-top:clamp(28px,5vh,44px);flex-wrap:wrap;
+  opacity:0;animation:fade 1s var(--ease) 1.45s forwards}
+.hero-stats .stat .n{font-family:"Fraunces",serif;font-size:clamp(1.7rem,3.4vw,2.6rem);font-weight:600;line-height:1}
+.hero-stats .stat .l{font-size:.78rem;letter-spacing:.04em;color:rgba(255,255,255,.62);margin-top:6px;max-width:18ch}
 
 .scroll-ind{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;
   display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.6);
-  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
-  opacity:0;animation:fade 1s var(--ease) 1.6s forwards}
+  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;opacity:0;animation:fade 1s var(--ease) 1.6s forwards}
 .scroll-ind .track{width:1px;height:42px;background:rgba(255,255,255,.25);position:relative;overflow:hidden}
 .scroll-ind .track::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;
   background:var(--accent);animation:scrolldot 2s ease-in-out infinite}
 @keyframes scrolldot{0%{top:-50%}60%,100%{top:100%}}
 @media(max-width:560px){.scroll-ind{display:none}}
 
-/* ============================ REVEAL ============================ */
+/* ============================ REVEALS ============================ */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
 .reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+/* line-mask reveal for big headings (keeps inner <em> intact) */
+.lineup{overflow:hidden;padding-bottom:.08em}
+.lineup .inner{display:block;transform:translateY(108%);transition:transform 1s var(--ease)}
+.lineup.in .inner{transform:none}
 @media(prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  .hero h1 .w>span,.hero p.sub,.hero-actions,.hero-stats,.scroll-ind{opacity:1;animation:none;transform:none}
+  .reveal,.lineup .inner{opacity:1;transform:none;transition:none}
+  .hero h1 .w>span,.hero p.sub,.hero-actions,.hero-trust,.hero-stats,.scroll-ind{opacity:1;animation:none;transform:none}
 }
 
 /* ============================ SECTION SHELL ============================ */
 section{position:relative}
-.sec{padding:clamp(80px,13vh,150px) 0}
-.sec-head{max-width:24ch}
-.sec h2{font-family:"Fraunces",serif;font-weight:600;letter-spacing:-.02em;line-height:1.02;
-  font-size:clamp(2rem,5.2vw,3.7rem)}
-.lead{font-size:clamp(1.02rem,1.5vw,1.22rem);color:var(--muted);max-width:50ch}
+.sec{padding:clamp(84px,13vh,156px) 0}
+.sec h2{font-family:"Fraunces",serif;font-weight:600;letter-spacing:-.025em;line-height:1.0;
+  font-size:clamp(2.1rem,5.6vw,4rem)}
+.lead{font-size:clamp(1.02rem,1.5vw,1.24rem);color:var(--muted);max-width:52ch}
 
 /* ===================== PROBLEM ===================== */
 .problem{background:var(--ink);color:var(--white)}
@@ -207,28 +204,38 @@ section{position:relative}
 .problem h2 em{font-style:italic;color:var(--accent);font-weight:500}
 .pains{margin-top:clamp(46px,7vh,74px);display:grid;gap:1px;background:rgba(255,255,255,.1);
   border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden}
-.pain{background:var(--ink);padding:clamp(28px,4vw,44px);display:grid;
-  grid-template-columns:auto 1fr;gap:clamp(20px,4vw,42px);align-items:start}
-.pain .idx{font-family:"Fraunces",serif;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:500;
-  color:rgba(255,255,255,.22);line-height:.8}
-.pain h3{font-size:clamp(1.2rem,2.4vw,1.7rem);font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.pain{background:var(--ink);padding:clamp(28px,4vw,46px);display:grid;grid-template-columns:auto 1fr;
+  gap:clamp(20px,4vw,44px);align-items:start;transition:background .4s}
+.pain:hover{background:#141414}
+.pain .idx{font-family:"Fraunces",serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:500;
+  color:rgba(255,255,255,.2);line-height:.8}
+.pain h3{font-size:clamp(1.2rem,2.4vw,1.75rem);font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
 .pain p{color:rgba(255,255,255,.62);max-width:54ch}
-.pain .tag{display:inline-block;margin-top:14px;font-size:.72rem;letter-spacing:.04em;
-  color:var(--accent);border:1px solid rgba(198,242,78,.35);padding:5px 12px;border-radius:100px}
+.pain .tag{display:inline-block;margin-top:14px;font-size:.72rem;letter-spacing:.04em;color:var(--accent);
+  border:1px solid rgba(198,242,78,.35);padding:5px 12px;border-radius:100px}
 @media(max-width:640px){.pain{grid-template-columns:1fr;gap:10px}.pain .idx{font-size:2rem}}
+
+/* ===================== KINETIC BAND ===================== */
+.band{background:var(--green);color:var(--white);padding:clamp(22px,4vw,40px) 0;overflow:hidden;
+  border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1)}
+.band .track{display:flex;gap:0;width:max-content;animation:march 34s linear infinite}
+.band:hover .track{animation-play-state:paused}
+.band .track .it{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(1.8rem,5vw,3.4rem);
+  letter-spacing:-.01em;white-space:nowrap;display:inline-flex;align-items:center}
+.band .track .it::after{content:"✦";color:var(--accent);font-size:.6em;margin:0 clamp(20px,3vw,40px);transform:translateY(-.1em)}
+@keyframes march{to{transform:translateX(-50%)}}
 
 /* ===================== SOLUTION / STICKY PHONE ===================== */
 .solution{background:var(--paper)}
-.sticky-stage{display:grid;grid-template-columns:1fr minmax(280px,420px);gap:clamp(30px,6vw,80px);
+.sticky-stage{display:grid;grid-template-columns:1fr minmax(280px,420px);gap:clamp(30px,6vw,84px);
   align-items:start;margin-top:clamp(30px,5vh,50px)}
 .phone-col{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center}
 /* APP SCREENSHOTS placeholder — iPhone mockup frame holds cross-fading screens */
-.phone{position:relative;width:clamp(230px,26vw,300px);aspect-ratio:9/19.2;
-  background:var(--ink);border-radius:42px;padding:11px;
-  box-shadow:0 50px 90px -40px rgba(12,58,36,.6),0 0 0 2px rgba(0,0,0,.05);}
+.phone{position:relative;width:clamp(230px,26vw,300px);aspect-ratio:9/19.2;background:var(--ink);
+  border-radius:44px;padding:11px;box-shadow:0 60px 100px -45px rgba(10,50,33,.65),0 0 0 2px rgba(0,0,0,.06)}
 .phone::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);
   width:96px;height:24px;background:var(--ink);border-radius:100px;z-index:3}
-.phone .screen{position:relative;width:100%;height:100%;border-radius:32px;overflow:hidden;background:#0b1f15}
+.phone .screen{position:relative;width:100%;height:100%;border-radius:33px;overflow:hidden;background:#0b1f15}
 .screens-track .scr{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--ease),transform .6s var(--ease);
   transform:scale(1.04);display:flex;flex-direction:column}
 .screens-track .scr.active{opacity:1;transform:none}
@@ -237,93 +244,80 @@ section{position:relative}
 .scr .scr-top h4{font-family:"Fraunces",serif;font-size:1.5rem;font-weight:600;margin-top:8px;line-height:1.05}
 .scr .scr-body{flex:1;margin:8px 14px 16px;background:rgba(255,255,255,.06);border-radius:20px;
   padding:16px;display:flex;flex-direction:column;gap:10px}
-.scr .row{background:rgba(255,255,255,.07);border-radius:12px;padding:11px 13px;color:#fff;
-  display:flex;align-items:center;gap:11px}
-.scr .row .dot{width:30px;height:30px;border-radius:9px;background:var(--green);flex:0 0 auto;
-  display:grid;place-items:center;font-size:.8rem}
+.scr .row{background:rgba(255,255,255,.07);border-radius:12px;padding:11px 13px;color:#fff;display:flex;align-items:center;gap:11px}
+.scr .row .dot{width:30px;height:30px;border-radius:9px;background:var(--green);flex:0 0 auto;display:grid;place-items:center;font-size:.8rem}
 .scr .row .meta{display:flex;flex-direction:column;line-height:1.2}
 .scr .row .meta b{font-size:.82rem;font-weight:600}
 .scr .row .meta small{font-size:.66rem;opacity:.6}
-.scr .row .pill{margin-left:auto;font-size:.6rem;background:var(--accent);color:var(--ink);
-  padding:3px 8px;border-radius:100px;font-weight:600}
-.scr.s-level{background:linear-gradient(180deg,#0c3a24,#06140d)}
-.scr.s-level .big{font-family:"Fraunces",serif;font-size:3.2rem;font-weight:600;color:var(--accent);text-align:center;margin-top:6px}
-.scr.s-level .ring{margin:14px auto;width:120px;height:120px;border-radius:50%;
+.scr .row .pill{margin-left:auto;font-size:.6rem;background:var(--accent);color:var(--ink);padding:3px 8px;border-radius:100px;font-weight:600}
+.scr.s-level{background:linear-gradient(180deg,#0a3221,#05130c)}
+.scr.s-level .ring{margin:14px auto 4px;width:120px;height:120px;border-radius:50%;
   background:conic-gradient(var(--accent) 72%,rgba(255,255,255,.12) 0);display:grid;place-items:center}
 .scr.s-level .ring i{width:96px;height:96px;border-radius:50%;background:#0a2a1a;display:grid;place-items:center;
   font-family:"Fraunces",serif;font-size:1.6rem;color:#fff;font-style:normal}
 
 .steps-col{display:flex;flex-direction:column}
-.step{min-height:78vh;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(20px,4vh,40px) 0;border-top:1px solid var(--line)}
+.step{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(20px,4vh,40px) 0;
+  border-top:1px solid var(--line);opacity:.4;transition:opacity .5s}
 .step:first-child{border-top:none}
+.step.on{opacity:1}
 .step .num{font-family:"Fraunces",serif;color:var(--green);font-size:.95rem;font-weight:600;margin-bottom:14px}
-.step h3{font-family:"Fraunces",serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:600;
-  letter-spacing:-.02em;line-height:1.04;margin-bottom:12px}
+.step h3{font-family:"Fraunces",serif;font-size:clamp(1.6rem,3vw,2.5rem);font-weight:600;letter-spacing:-.02em;line-height:1.04;margin-bottom:12px}
 .step p{color:var(--muted);max-width:42ch;font-size:1.05rem}
-.step.on h3{color:var(--ink)}
 @media(max-width:860px){
   .sticky-stage{grid-template-columns:1fr}
   .phone-col{position:sticky;top:0;height:auto;order:-1;padding:24px 0 8px}
   .phone{width:clamp(190px,52vw,230px)}
-  .step{min-height:auto;padding:34px 0}
+  .step{min-height:auto;padding:34px 0;opacity:1}
 }
 
 /* ===================== MANIFESTO ===================== */
 .manifesto{background:var(--cream);text-align:center;overflow:hidden}
-.manifesto .wrap{max-width:1000px}
+.manifesto .wrap{max-width:1040px}
 .manifesto .eyebrow{color:var(--green);justify-content:center}.manifesto .eyebrow::before{display:none}
-.manifesto p.statement{
-  font-family:"Fraunces",serif;font-weight:400;letter-spacing:-.02em;line-height:1.12;
-  font-size:clamp(1.7rem,4.4vw,3.1rem);margin-top:26px;
-}
+.manifesto p.statement{font-family:"Fraunces",serif;font-weight:400;letter-spacing:-.02em;line-height:1.12;
+  font-size:clamp(1.7rem,4.6vw,3.2rem);margin-top:26px}
 .manifesto p.statement b{font-weight:600}
 .manifesto p.statement .hl{font-style:italic;color:var(--green);font-weight:500;
-  background:linear-gradient(transparent 62%,rgba(198,242,78,.5) 62%);padding:0 .06em}
-.manifesto .creed{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
-  margin-top:clamp(34px,5vh,48px)}
-.manifesto .creed span{font-size:.82rem;font-weight:600;letter-spacing:.02em;
-  padding:9px 16px;border-radius:100px;background:var(--white);border:1px solid var(--line)}
+  background:linear-gradient(transparent 62%,rgba(198,242,78,.55) 62%);padding:0 .06em}
+.manifesto .creed{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:clamp(34px,5vh,48px)}
+.manifesto .creed span{font-size:.82rem;font-weight:600;letter-spacing:.02em;padding:9px 16px;border-radius:100px;
+  background:var(--white);border:1px solid var(--line)}
 .manifesto .creed span i{font-style:normal;color:var(--green)}
 
 /* ===================== UNIVERSAL LEVEL ===================== */
 .level{background:var(--green-deep);color:var(--white);overflow:hidden}
+.level::before{content:"";position:absolute;width:50vw;height:50vw;right:-15vw;top:-10vw;border-radius:50%;
+  background:radial-gradient(circle,rgba(198,242,78,.16),transparent 70%);filter:blur(40px);pointer-events:none}
 .level .eyebrow{color:var(--accent)}
-.level h2{max-width:16ch;margin-top:14px}
+.level h2{max-width:17ch;margin-top:14px}
 .level h2 em{font-style:italic;color:var(--accent);font-weight:500}
-.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(18px,3vw,38px);align-items:center;
-  margin-top:clamp(46px,7vh,72px)}
+.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(18px,3vw,40px);align-items:center;margin-top:clamp(46px,7vh,72px)}
 .ba .card{border-radius:22px;padding:clamp(22px,3vw,34px);min-height:300px;position:relative}
 .ba .before{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
 .ba .after{background:var(--accent);color:var(--ink)}
 .ba .card .cap{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
 .ba .before .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
 .ba .before .chip{font-size:.8rem;padding:9px 13px;border-radius:10px;background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);position:relative}
+  border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8)}
 .ba .before .chip b{display:block;font-size:.68rem;color:var(--accent);font-weight:600;margin-top:3px;opacity:.9}
 .ba .before .none{margin-top:22px;color:rgba(255,255,255,.5);font-size:.86rem;font-style:italic}
 .ba .arrow{display:grid;place-items:center;color:var(--accent);font-size:1.6rem}
 .ba .after h3{font-family:"Fraunces",serif;font-size:clamp(2.6rem,5vw,3.6rem);font-weight:600;line-height:1;margin-top:22px}
 .ba .after .scale{margin-top:10px;font-weight:600}
-.ba .after p{margin-top:16px;max-width:30ch;color:rgba(18,18,18,.72);font-size:.95rem}
+.ba .after p{margin-top:16px;max-width:32ch;color:rgba(14,14,14,.74);font-size:.95rem}
 .ba .after .wpr-tag{display:inline-block;margin-top:18px;background:var(--ink);color:var(--accent);
   font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:7px 13px;border-radius:100px}
-.level-foot{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,4vw,48px);
-  margin-top:clamp(40px,6vh,64px);padding-top:30px;border-top:1px solid rgba(255,255,255,.12)}
-.level-foot .endorse{font-size:.82rem;color:rgba(255,255,255,.62);max-width:30ch}
+.level-foot{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(20px,4vw,48px);margin-top:clamp(40px,6vh,64px);
+  padding-top:30px;border-top:1px solid rgba(255,255,255,.12);position:relative}
+.level-foot .endorse{font-size:.82rem;color:rgba(255,255,255,.62);max-width:32ch}
 .fed-logos{display:flex;flex-wrap:wrap;gap:14px;margin-left:auto}
-@media(max-width:760px){
-  .ba{grid-template-columns:1fr}
-  .ba .arrow{transform:rotate(90deg);padding:6px 0}
-  .fed-logos{margin-left:0}
-}
+@media(max-width:760px){.ba{grid-template-columns:1fr}.ba .arrow{transform:rotate(90deg);padding:6px 0}.fed-logos{margin-left:0}}
 
-/* logo placeholder chips (text wordmarks until real assets) */
-.logo-ph{
-  display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;
-  font-weight:700;letter-spacing:-.01em;font-size:.92rem;white-space:nowrap;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#fff;
-}
+/* logo placeholder chips */
+.logo-ph{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;font-weight:700;
+  letter-spacing:-.01em;font-size:.92rem;white-space:nowrap;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);color:#fff}
 .logo-ph .sub{font-weight:500;font-size:.66rem;opacity:.6;letter-spacing:.02em}
 .logo-ph .gl{color:var(--accent)}
 
@@ -333,104 +327,106 @@ section{position:relative}
 .marquee{margin-top:clamp(40px,6vh,60px);overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
           mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee .track{display:flex;gap:18px;width:max-content;animation:march 32s linear infinite}
+.marquee .track{display:flex;gap:18px;width:max-content;animation:march 30s linear infinite}
 .marquee:hover .track{animation-play-state:paused}
-@keyframes march{to{transform:translateX(-50%)}}
 .logo-ph.light{background:var(--white);border:1px solid var(--line);color:var(--ink)}
-.logo-ph.light .gl{color:var(--green)}
-.logo-ph.light .sub{opacity:.5;color:var(--ink)}
-.partner-note{margin-top:clamp(40px,6vh,60px);display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:24px}
-.pcard{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:26px}
+.logo-ph.light .gl{color:var(--green)}.logo-ph.light .sub{opacity:.5;color:var(--ink)}
+.partner-note{margin-top:clamp(40px,6vh,60px);display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+.pcard{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .4s var(--ease),box-shadow .4s}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(0,0,0,.25)}
 .pcard .ph-row{margin-bottom:14px}
 .pcard .logo-ph.light{background:var(--cream)}
 .pcard h4{font-size:1.02rem;font-weight:600;margin-bottom:6px}
 .pcard p{font-size:.9rem;color:var(--muted)}
 
-/* ===================== STATS / SOCIAL ===================== */
+/* ===================== SOCIAL ===================== */
 .social{background:var(--ink);color:var(--white);text-align:center}
-.social .eyebrow{color:var(--accent);justify-content:center}
-.social .eyebrow::before{display:none}
+.social .eyebrow{color:var(--accent);justify-content:center}.social .eyebrow::before{display:none}
 .social h2{max-width:20ch;margin:14px auto 0}
-.counters{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,40px);
-  margin-top:clamp(46px,7vh,74px)}
-.counter .n{font-family:"Fraunces",serif;font-weight:600;line-height:1;
-  font-size:clamp(2.6rem,8vw,5.4rem);letter-spacing:-.02em}
+.counters{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,40px);margin-top:clamp(46px,7vh,74px)}
+.counter .n{font-family:"Fraunces",serif;font-weight:600;line-height:1;font-size:clamp(2.6rem,8vw,5.6rem);letter-spacing:-.02em}
 .counter .n .suf{color:var(--accent)}
-.counter .l{margin-top:12px;color:rgba(255,255,255,.6);font-size:.88rem;letter-spacing:.02em}
-.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(46px,7vh,72px)}
+.counter .l{margin-top:12px;color:rgba(255,255,255,.6);font-size:.88rem}
 /* COMMUNITY PHOTOS placeholder */
-.photo-strip .ph{aspect-ratio:4/5;border-radius:14px;
-  background:linear-gradient(135deg,#16321f,#0a1c12);border:1px solid rgba(255,255,255,.08);
-  display:grid;place-items:center;color:rgba(255,255,255,.35);font-size:.7rem;letter-spacing:.04em}
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(46px,7vh,72px)}
+.photo-strip .ph{aspect-ratio:4/5;border-radius:14px;background:linear-gradient(135deg,#16321f,#0a1c12);
+  border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;color:rgba(255,255,255,.35);font-size:.7rem;letter-spacing:.04em}
 @media(max-width:680px){.counters{grid-template-columns:1fr;gap:36px}.photo-strip{grid-template-columns:repeat(2,1fr)}}
 
 /* ===================== VIDEO ===================== */
-.video{background:#05100a;color:var(--white);text-align:center}
+.video{background:#040d08;color:var(--white);text-align:center}
 .video .eyebrow{color:var(--accent);justify-content:center}.video .eyebrow::before{display:none}
 .video h2{max-width:18ch;margin:14px auto clamp(34px,5vh,50px)}
 /* EXPLAINER VIDEO placeholder */
-.video-frame{max-width:1000px;margin:0 auto;aspect-ratio:16/9;border-radius:22px;overflow:hidden;
-  position:relative;background:
-   radial-gradient(60% 80% at 50% 40%,rgba(26,122,74,.5),transparent 70%),
-   linear-gradient(180deg,#0a1f14,#05100a);
-  border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;cursor:pointer}
-.video-frame .play{width:84px;height:84px;border-radius:50%;background:var(--accent);
-  display:grid;place-items:center;transition:transform .4s var(--ease),box-shadow .4s}
-.video-frame:hover .play{transform:scale(1.08);box-shadow:0 0 0 14px rgba(198,242,78,.12)}
+.video-frame{max-width:1040px;margin:0 auto;aspect-ratio:16/9;border-radius:22px;overflow:hidden;position:relative;
+  background:radial-gradient(60% 80% at 50% 40%,rgba(26,122,74,.5),transparent 70%),linear-gradient(180deg,#0a1f14,#040d08);
+  border:1px solid rgba(255,255,255,.1);display:grid;place-items:center}
+.video-frame .play{width:88px;height:88px;border-radius:50%;background:var(--accent);display:grid;place-items:center;
+  transition:transform .4s var(--ease),box-shadow .4s}
+.video-frame:hover .play{transform:scale(1.08);box-shadow:0 0 0 16px rgba(198,242,78,.12)}
 .video-frame .play svg{width:30px;height:30px;margin-left:4px;fill:var(--ink)}
-.video-frame .ph-label{position:absolute;bottom:18px;left:0;right:0;color:rgba(255,255,255,.4);
-  font-size:.72rem;letter-spacing:.04em}
+.video-frame .ph-label{position:absolute;bottom:18px;left:0;right:0;color:rgba(255,255,255,.4);font-size:.72rem;letter-spacing:.04em}
 
-/* ===================== FINAL CTA ===================== */
-.final{min-height:100svh;display:flex;align-items:center;text-align:center;
-  background:radial-gradient(70% 60% at 50% 0%,rgba(26,122,74,.18),transparent),var(--paper)}
-.final .inner{margin:0 auto;max-width:780px}
-.final .mark-lg{width:62px;height:62px;border-radius:16px;background:var(--ink);color:var(--accent);
-  display:grid;place-items:center;font-family:"Fraunces",serif;font-weight:900;font-size:28px;margin:0 auto 28px}
-.final h2{font-family:"Fraunces",serif;font-weight:600;letter-spacing:-.02em;line-height:1;
-  font-size:clamp(2.4rem,7vw,5rem)}
+/* ===================== FINAL ===================== */
+.final{min-height:100svh;display:flex;align-items:center;text-align:center;overflow:hidden;
+  background:radial-gradient(70% 60% at 50% 0%,rgba(26,122,74,.2),transparent),var(--paper)}
+.final .inner{margin:0 auto;max-width:820px}
+.final .mark-lg{width:64px;height:64px;border-radius:16px;background:var(--ink);color:var(--accent);display:grid;
+  place-items:center;font-family:"Fraunces",serif;font-weight:900;font-size:28px;margin:0 auto 28px}
+.final h2{font-family:"Fraunces",serif;font-weight:600;letter-spacing:-.025em;line-height:.98;font-size:clamp(2.5rem,7.5vw,5.4rem)}
 .final h2 em{font-style:italic;color:var(--green)}
-.final p{color:var(--muted);font-size:1.12rem;margin:22px auto 36px;max-width:44ch}
+.final p{color:var(--muted);font-size:1.12rem;margin:22px auto 36px;max-width:46ch}
 .final .stores{justify-content:center}
 .final-foot{margin-top:clamp(50px,8vh,90px);display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:16px;font-size:.8rem;color:var(--muted);width:100%}
-.final-foot a:hover{color:var(--ink)}
 
 /* ===================== MOBILE STICKY CTA ===================== */
 .mcta{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;
-  padding:12px 14px calc(12px + env(safe-area-inset-bottom));
-  background:rgba(18,18,18,.92);backdrop-filter:blur(16px);
-  border-top:1px solid rgba(255,255,255,.12);
+  padding:12px 14px calc(12px + env(safe-area-inset-bottom));background:rgba(14,14,14,.92);
+  backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.12);
   transform:translateY(120%);transition:transform .5s var(--ease)}
 .mcta.show{transform:none}
 .mcta .row{display:flex;gap:10px;max-width:520px;margin:0 auto}
 .mcta .store{flex:1;justify-content:center;padding:12px 10px}
-.mcta .store .lbl span{font-size:.9rem}
-@media(max-width:760px){.mcta{display:block}body{padding-bottom:0}}
+@media(max-width:760px){.mcta{display:block}}
 
-/* utility */
-.center{text-align:center}
-.mt{margin-top:clamp(26px,4vh,38px)}
+.center{text-align:center}.mt{margin-top:clamp(26px,4vh,38px)}
 </style>
 </head>
-<body>
+<body class="">
+
+<div class="grain" aria-hidden="true"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-r" id="curR" aria-hidden="true"></div>
+
+<!-- ============================ PRELOADER ============================ -->
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="inner">
+    <!-- TPS LOGO: replace .pmark with TPS Logotype-05.png -->
+    <div class="pmark">tps</div>
+    <div class="pname">The Padel Society · Bali</div>
+  </div>
+  <div class="pcount" id="pcount">0</div>
+  <div class="pbar" id="pbar"></div>
+</div>
 
 <!-- ============================ NAV ============================ -->
 <nav class="nav" id="nav">
-  <!-- TPS LOGO: replace .mark + wordmark with TPS Logotype-05.png -->
-  <a class="brand" href="#top" aria-label="The Padel Society">
+  <!-- TPS LOGO: replace mark + wordmark with TPS Logotype-05.png -->
+  <a class="brand" href="#top" aria-label="The Padel Society" data-cur>
     <span class="mark">tps</span>
-    <span class="name">The&nbsp;Padel&nbsp;Society <b>· Bali</b></span>
+    <span class="name">The&nbsp;Padel&nbsp;Society</span>
   </a>
-  <a class="nav-cta" href="#get">Get the app</a>
+  <a class="nav-cta" href="#get" data-cur>Get the app</a>
 </nav>
 
 <!-- ============================ HERO ============================ -->
 <header class="hero" id="top">
-  <!-- HERO VIDEO: insert Bali padel video here (muted autoplay loop). Animated gradient is placeholder. -->
+  <!-- HERO VIDEO: insert Bali padel video here (muted autoplay loop). Gradient + orbs are placeholder. -->
   <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="orb a" data-orb="0.06" aria-hidden="true"></div>
+  <div class="orb b" data-orb="-0.05" aria-hidden="true"></div>
 
   <div class="hero-inner">
     <span class="eyebrow">The Padel Society · Canggu · Seminyak · Uluwatu</span>
@@ -449,11 +445,11 @@ section{position:relative}
 
     <div class="hero-actions">
       <div class="stores">
-        <a class="store" href="#get" aria-label="Download on the App Store">
+        <a class="store" href="#get" data-cur aria-label="Download on the App Store">
           <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17.4c-.5 1.2-.8 1.7-1.5 2.7-.9 1.4-2.3 3.1-3.9 3.1-1.5 0-1.8-1-3.8-1-1.9 0-2.3 1-3.8 1-1.6 0-2.8-1.5-3.8-2.9C.6 17.2.3 12.6 2 9.9c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 2 8z"/></svg>
           <span class="lbl"><small>Download on the</small><span>App Store</span></span>
         </a>
-        <a class="store" href="#get" aria-label="Get it on Google Play">
+        <a class="store" href="#get" data-cur aria-label="Get it on Google Play">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M3.6 2.3c-.3.3-.5.7-.5 1.3v16.8c0 .6.2 1 .5 1.3l.1.1L13 12.1v-.2L3.7 2.2l-.1.1z"/><path fill="#c6f24e" d="M16.3 15.4l-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-4 2.2z"/><path fill="#fff" opacity=".85" d="M16.4 15.3L13 12 3.6 21.7c.4.4 1 .4 1.7.1l11.1-6.5z"/><path fill="#fff" opacity=".6" d="M16.4 8.7L5.3 2.2c-.7-.4-1.3-.3-1.7.1L13 12l3.4-3.3z"/></svg>
           <span class="lbl"><small>Get it on</small><span>Google Play</span></span>
         </a>
@@ -483,33 +479,33 @@ section{position:relative}
 <section class="problem sec">
   <div class="wrap">
     <span class="eyebrow reveal">Sound familiar?</span>
-    <h2 class="serif reveal d1">Playing padel in Bali takes <em>four apps and a lot of patience.</em></h2>
+    <h2 class="serif lineup"><span class="inner">Playing padel in Bali takes <em>four apps and a lot of patience.</em></span></h2>
 
     <div class="pains">
-      <article class="pain reveal">
+      <article class="pain reveal" data-cur>
         <div class="idx">01</div>
         <div>
           <h3>Your level resets every time you switch.</h3>
-          <p>A solid 4.0 on one platform means nothing on the next. Every system grades
-             you differently, so you start from scratch wherever you book.</p>
+          <p>A solid 4.0 on one platform means nothing on the next. Every system grades you
+             differently, so you start from scratch wherever you book.</p>
           <span class="tag">Five platforms · five levels · none transfer</span>
         </div>
       </article>
-      <article class="pain reveal d1">
+      <article class="pain reveal d1" data-cur>
         <div class="idx">02</div>
         <div>
           <h3>Open matches are buried in WhatsApp.</h3>
-          <p>The good games are hiding in a group with 300 unread messages. By the time
-             you scroll to the right one, the court's already full.</p>
+          <p>The good games are hiding in a group with 300 unread messages. By the time you
+             scroll to the right one, the court's already full.</p>
           <span class="tag">300 unread · 1 spot left · gone</span>
         </div>
       </article>
-      <article class="pain reveal d2">
+      <article class="pain reveal d2" data-cur>
         <div class="idx">03</div>
         <div>
           <h3>Every club runs a different system.</h3>
-          <p>Canggu books one way, Uluwatu another. You're juggling logins just to find
-             a court at 6pm on a Tuesday.</p>
+          <p>Canggu books one way, Uluwatu another. You're juggling logins just to find a court
+             at 6pm on a Tuesday.</p>
           <span class="tag">One island · too many systems</span>
         </div>
       </article>
@@ -517,46 +513,53 @@ section{position:relative}
   </div>
 </section>
 
+<!-- ============================ KINETIC BAND ============================ -->
+<div class="band" aria-hidden="true">
+  <div class="track">
+    <span class="it">One platform</span><span class="it">Every court</span><span class="it">Every open match</span>
+    <span class="it">One level</span><span class="it">Owned by no platform</span>
+    <span class="it">One platform</span><span class="it">Every court</span><span class="it">Every open match</span>
+    <span class="it">One level</span><span class="it">Owned by no platform</span>
+  </div>
+</div>
+
 <!-- ============================ SOLUTION / STICKY PHONE ============================ -->
 <section class="solution sec">
   <div class="wrap">
     <span class="eyebrow reveal">The fix</span>
-    <h2 class="serif reveal d1" style="max-width:20ch;margin-top:14px">One platform that does the job of all of them.</h2>
+    <h2 class="serif lineup" style="max-width:20ch;margin-top:14px"><span class="inner">One platform that does the job of all of them.</span></h2>
     <p class="lead reveal d2 mt">Book any court on any system, find every open match, carry one level
-       everywhere, and actually meet the people you play with. We don't compete with the
-       platforms — we connect them. Here's how it feels.</p>
+       everywhere, and actually meet the people you play with. We don't compete with the platforms —
+       we connect them. Here's how it feels.</p>
 
     <div class="sticky-stage">
-      <!-- STEPS -->
       <div class="steps-col">
         <div class="step" data-step="0">
           <div class="num">01 / Booking</div>
           <h3>Every court in Bali, one tap to book.</h3>
-          <p>Playtomic, Matchi, Taykus, Book&nbsp;&amp;&nbsp;Go, Jungle Padel, Island Padel —
-             we pull them into a single feed. See real availability across the island and book
-             without leaving the app.</p>
+          <p>Playtomic, Matchi, Taykus, Book&nbsp;&amp;&nbsp;Go, Jungle Padel, Island Padel — pulled
+             into a single feed. See real availability across the island and book without leaving the app.</p>
         </div>
         <div class="step" data-step="1">
           <div class="num">02 / Open matches</div>
           <h3>The open-match feed that replaces the group chat.</h3>
-          <p>Every open game, filtered to your level and your side of the island.
-             Tap to join. No scrolling, no missed messages, no awkward "still 1 spot?".</p>
+          <p>Every open game, filtered to your level and your side of the island. Tap to join.
+             No scrolling, no missed messages, no awkward "still 1 spot?".</p>
         </div>
         <div class="step" data-step="2">
           <div class="num">03 / Universal level</div>
           <h3>One level that follows you everywhere.</h3>
-          <p>Powered by World Padel Rating and endorsed by the federations — a single,
-             honest number from 0 to 21 that every platform recognises.</p>
+          <p>Powered by World Padel Rating and approved by the federations — a single, honest number
+             from 0 to 21 that every platform recognises.</p>
         </div>
         <div class="step" data-step="3">
           <div class="num">04 / Community</div>
           <h3>The people, the events, the tournaments.</h3>
-          <p>Socials, ladder nights and tournaments across Canggu, Seminyak and Uluwatu —
-             built around players at your level, not a random invite link.</p>
+          <p>Socials, ladder nights and tournaments across Canggu, Seminyak and Uluwatu — built
+             around players at your level, not a random invite link.</p>
         </div>
       </div>
 
-      <!-- STICKY PHONE -->
       <div class="phone-col">
         <!-- APP SCREENSHOTS: insert iPhone mockups here. Frames below are placeholders. -->
         <div class="phone" aria-hidden="true">
@@ -623,7 +626,7 @@ section{position:relative}
 <section class="level sec">
   <div class="wrap">
     <span class="eyebrow reveal">The thing nobody else fixes</span>
-    <h2 class="serif reveal d1">One standard. <em>Approved by the people who run the sport.</em></h2>
+    <h2 class="serif lineup"><span class="inner">One standard. <em>Approved by the people who run the sport.</em></span></h2>
 
     <div class="ba">
       <div class="card before reveal d1">
@@ -644,9 +647,8 @@ section{position:relative}
         <div class="cap">After</div>
         <h3 class="serif">4.32</h3>
         <div class="scale">World Padel Rating · 0–21</div>
-        <p>One honest number, built from real match results — the same standard already
-           trusted in the USA, Canada, Thailand and Indonesia. Independent of any platform,
-           recognised across all of them.</p>
+        <p>One honest number, built from real match results — the same standard already trusted in
+           the USA, Canada, Thailand and Indonesia. Independent of any platform, recognised across all of them.</p>
         <span class="wpr-tag">Powered by World Padel Rating</span>
       </div>
     </div>
@@ -655,13 +657,13 @@ section{position:relative}
       <p class="endorse">A single standard, approved by the national federations and the Asia Pacific
         Padel Tour, and built on World Padel Rating — not controlled by any booking platform.</p>
       <div class="fed-logos">
-        <!-- PARTNER LOGO: World Padel Rating (WPR) — replace with official logo -->
+        <!-- PARTNER LOGO: World Padel Rating (WPR) -->
         <span class="logo-ph"><span class="gl">WPR</span><span class="sub">World Padel Rating</span></span>
-        <!-- PARTNER LOGO: Asia Pacific Padel Tour (APPT) — replace with official logo -->
+        <!-- PARTNER LOGO: Asia Pacific Padel Tour (APPT) -->
         <span class="logo-ph">APPT<span class="sub">Asia Pacific Padel Tour</span></span>
-        <!-- PARTNER LOGO: Padel Indonesia federation — replace with official logo -->
+        <!-- PARTNER LOGO: Padel Indonesia federation -->
         <span class="logo-ph">Padel&nbsp;Indonesia<span class="sub">National Federation</span></span>
-        <!-- PARTNER LOGO: Thailand Padel Association — replace with official logo -->
+        <!-- PARTNER LOGO: Thailand Padel Association -->
         <span class="logo-ph">Thailand&nbsp;Padel<span class="sub">FIP member assoc.</span></span>
       </div>
     </div>
@@ -672,55 +674,46 @@ section{position:relative}
 <section class="partners sec">
   <div class="wrap">
     <span class="eyebrow reveal">Plays well with others</span>
-    <h2 class="serif reveal d1">Every platform. <em>One app.</em></h2>
-    <p class="lead reveal d2 mt">We don't replace the platforms you book on — we bring them together
-       on neutral ground, and add the one level and the community that belong to every player.</p>
+    <h2 class="serif lineup"><span class="inner">Every platform. <em>One app.</em></span></h2>
+    <p class="lead reveal d2 mt">We don't replace the platforms you book on — we bring them together on
+       neutral ground, and add the one level and the community that belong to every player.</p>
   </div>
 
   <!-- PLATFORM LOGOS: Playtomic, Matchi, Book & Go, Taykus, Jungle Padel, Island Padel — replace text chips -->
   <div class="marquee reveal" aria-label="Integrated booking platforms">
     <div class="track">
-      <span class="logo-ph light">Playtomic</span>
-      <span class="logo-ph light">Matchi</span>
-      <span class="logo-ph light">Book&nbsp;&amp;&nbsp;Go</span>
-      <span class="logo-ph light">Taykus</span>
-      <span class="logo-ph light">Jungle&nbsp;Padel</span>
-      <span class="logo-ph light">Island&nbsp;Padel</span>
-      <span class="logo-ph light"><span class="gl">WPR</span></span>
-      <span class="logo-ph light">APPT</span>
-      <!-- duplicate set for seamless loop -->
-      <span class="logo-ph light">Playtomic</span>
-      <span class="logo-ph light">Matchi</span>
-      <span class="logo-ph light">Book&nbsp;&amp;&nbsp;Go</span>
-      <span class="logo-ph light">Taykus</span>
-      <span class="logo-ph light">Jungle&nbsp;Padel</span>
-      <span class="logo-ph light">Island&nbsp;Padel</span>
-      <span class="logo-ph light"><span class="gl">WPR</span></span>
-      <span class="logo-ph light">APPT</span>
+      <span class="logo-ph light">Playtomic</span><span class="logo-ph light">Matchi</span>
+      <span class="logo-ph light">Book&nbsp;&amp;&nbsp;Go</span><span class="logo-ph light">Taykus</span>
+      <span class="logo-ph light">Jungle&nbsp;Padel</span><span class="logo-ph light">Island&nbsp;Padel</span>
+      <span class="logo-ph light"><span class="gl">WPR</span></span><span class="logo-ph light">APPT</span>
+      <span class="logo-ph light">Playtomic</span><span class="logo-ph light">Matchi</span>
+      <span class="logo-ph light">Book&nbsp;&amp;&nbsp;Go</span><span class="logo-ph light">Taykus</span>
+      <span class="logo-ph light">Jungle&nbsp;Padel</span><span class="logo-ph light">Island&nbsp;Padel</span>
+      <span class="logo-ph light"><span class="gl">WPR</span></span><span class="logo-ph light">APPT</span>
     </div>
   </div>
 
   <div class="wrap">
     <div class="partner-note">
-      <div class="pcard reveal">
+      <div class="pcard reveal" data-cur>
         <div class="ph-row">
           <!-- PARTNER LOGO: Asia Pacific Padel Tour (APPT) -->
           <span class="logo-ph light">APPT<span class="sub">Asia Pacific Padel Tour</span></span>
         </div>
         <h4>Asia Pacific Padel Tour</h4>
-        <p>Asia Pacific's first professional padel tour — bringing ranked tournaments
-           across the region. Our partnership connects Bali players to the competitive ladder.</p>
+        <p>Asia Pacific's first professional padel tour — bringing ranked tournaments across the region.
+           Our partnership connects Bali players to the competitive ladder.</p>
       </div>
-      <div class="pcard reveal d1">
+      <div class="pcard reveal d1" data-cur>
         <div class="ph-row">
           <!-- PARTNER LOGO: World Padel Rating -->
           <span class="logo-ph light"><span class="gl">WPR</span><span class="sub">World Padel Rating</span></span>
         </div>
         <h4>World Padel Rating</h4>
-        <p>The level-based rating system used by federations and platforms worldwide.
-           A single 0–21 number, built from real match results, that powers your level in the app.</p>
+        <p>The level-based rating system used by federations and platforms worldwide. A single 0–21
+           number, built from real match results, that powers your level in the app.</p>
       </div>
-      <div class="pcard reveal d2">
+      <div class="pcard reveal d2" data-cur>
         <div class="ph-row">
           <!-- PARTNER LOGO: Padel Indonesia + Thailand Padel Association -->
           <span class="logo-ph light">Federations<span class="sub">Indonesia · Thailand</span></span>
@@ -733,33 +726,22 @@ section{position:relative}
   </div>
 </section>
 
-<!-- ============================ SOCIAL PROOF ============================ -->
+<!-- ============================ SOCIAL ============================ -->
 <section class="social sec">
   <div class="wrap">
     <span class="eyebrow reveal">The society, in numbers</span>
-    <h2 class="serif reveal d1">A community that's already on court.</h2>
+    <h2 class="serif lineup"><span class="inner">A community that's already on court.</span></h2>
 
     <div class="counters">
-      <div class="counter reveal" >
-        <div class="n"><span class="count" data-to="15000" data-suffix="+">0</span></div>
-        <div class="l">players in the society</div>
-      </div>
-      <div class="counter reveal d1">
-        <div class="n"><span class="count" data-to="250" data-suffix="+">0</span></div>
-        <div class="l">events every month</div>
-      </div>
-      <div class="counter reveal d2">
-        <div class="n"><span class="count" data-to="95" data-suffix="%">0</span></div>
-        <div class="l">of events sell out</div>
-      </div>
+      <div class="counter reveal"><div class="n"><span class="count" data-to="15000" data-suffix="+">0</span></div><div class="l">players in the society</div></div>
+      <div class="counter reveal d1"><div class="n"><span class="count" data-to="250" data-suffix="+">0</span></div><div class="l">events every month</div></div>
+      <div class="counter reveal d2"><div class="n"><span class="count" data-to="95" data-suffix="%">0</span></div><div class="l">of events sell out</div></div>
     </div>
 
     <!-- COMMUNITY PHOTOS: insert real Bali community photos here -->
     <div class="photo-strip reveal">
-      <div class="ph">photo · Canggu</div>
-      <div class="ph">photo · Seminyak</div>
-      <div class="ph">photo · Uluwatu</div>
-      <div class="ph">photo · tournament</div>
+      <div class="ph">photo · Canggu</div><div class="ph">photo · Seminyak</div>
+      <div class="ph">photo · Uluwatu</div><div class="ph">photo · tournament</div>
     </div>
   </div>
 </section>
@@ -768,35 +750,34 @@ section{position:relative}
 <section class="video sec">
   <div class="wrap">
     <span class="eyebrow reveal">Watch</span>
-    <h2 class="serif reveal d1">See it in 60 seconds.</h2>
+    <h2 class="serif lineup"><span class="inner">See it in 60 seconds.</span></h2>
     <!-- EXPLAINER VIDEO: insert final video here -->
-    <div class="video-frame reveal d2" role="button" tabindex="0" aria-label="Play explainer video (placeholder)">
+    <div class="video-frame reveal d2" role="button" tabindex="0" data-cur aria-label="Play explainer video (placeholder)">
       <div class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
       <div class="ph-label">Explainer video placeholder · 60s product film drops in here</div>
     </div>
   </div>
 </section>
 
-<!-- ============================ FINAL CTA ============================ -->
+<!-- ============================ FINAL ============================ -->
 <section class="final sec" id="get">
   <div class="wrap">
     <div class="inner">
       <!-- TPS LOGO: replace with TPS Logotype-05.png -->
       <div class="mark-lg reveal">tps</div>
-      <h2 class="reveal d1">Stop switching apps. <em>Start&nbsp;playing.</em></h2>
-      <p class="reveal d2">One open platform for every court in Bali, every open match, and one
-         level that counts everywhere — built for players, owned by no platform. Free to download.</p>
+      <h2 class="lineup"><span class="inner">Stop switching apps. <em>Start&nbsp;playing.</em></span></h2>
+      <p class="reveal d2">One open platform for every court in Bali, every open match, and one level
+         that counts everywhere — built for players, owned by no platform. Free to download.</p>
       <div class="stores reveal d3">
-        <a class="store" href="#" aria-label="Download on the App Store">
+        <a class="store" href="#" data-cur aria-label="Download on the App Store">
           <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.5 1.6c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4zM20 17.4c-.5 1.2-.8 1.7-1.5 2.7-.9 1.4-2.3 3.1-3.9 3.1-1.5 0-1.8-1-3.8-1-1.9 0-2.3 1-3.8 1-1.6 0-2.8-1.5-3.8-2.9C.6 17.2.3 12.6 2 9.9c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 2 8z"/></svg>
           <span class="lbl"><small>Download on the</small><span>App Store</span></span>
         </a>
-        <a class="store" href="#" aria-label="Get it on Google Play">
+        <a class="store" href="#" data-cur aria-label="Get it on Google Play">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1a1a1a" d="M3.6 2.3c-.3.3-.5.7-.5 1.3v16.8c0 .6.2 1 .5 1.3l.1.1L13 12.1v-.2L3.7 2.2l-.1.1z"/><path fill="#1a7a4a" d="M16.3 15.4l-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-4 2.2z"/><path fill="#1a1a1a" opacity=".85" d="M16.4 15.3L13 12 3.6 21.7c.4.4 1 .4 1.7.1l11.1-6.5z"/><path fill="#1a1a1a" opacity=".6" d="M16.4 8.7L5.3 2.2c-.7-.4-1.3-.3-1.7.1L13 12l3.4-3.3z"/></svg>
           <span class="lbl"><small>Get it on</small><span>Google Play</span></span>
         </a>
       </div>
-
       <div class="final-foot">
         <span>© 2026 The Padel Society · Bali</span>
         <span>Canggu · Seminyak · Uluwatu</span>
@@ -823,109 +804,126 @@ section{position:relative}
 (function(){
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var doc = document.documentElement;
 
-  /* ---- NAV scrolled state ---- */
-  var nav = document.getElementById("nav");
-  var mcta = document.getElementById("mcta");
-  var hero = document.getElementById("top");
-  function onScroll(){
-    var y = window.scrollY || window.pageYOffset;
-    nav.classList.toggle("scrolled", y > 40);
-    // show mobile sticky CTA once hero is mostly scrolled past
-    if (mcta) mcta.classList.toggle("show", y > window.innerHeight * 0.6);
+  /* ---- PRELOADER ---- */
+  var pre = document.getElementById("pre");
+  var pcount = document.getElementById("pcount");
+  var pbar = document.getElementById("pbar");
+  function finishPre(){ if(!pre) return; pre.classList.add("done"); doc.classList.remove("preloading"); }
+  if(pre && !reduce){
+    doc.classList.add("preloading");
+    var n=0, dur=1100, t0=null;
+    function tick(ts){
+      if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1);
+      n=Math.round((1-Math.pow(1-p,2))*100);
+      pcount.textContent=n; pbar.style.width=n+"%";
+      if(p<1) requestAnimationFrame(tick);
+      else setTimeout(finishPre,180);
+    }
+    requestAnimationFrame(tick);
+    setTimeout(finishPre,2600); /* safety */
+  } else if(pre){ pre.style.display="none"; }
+
+  /* ---- CUSTOM CURSOR ---- */
+  if(window.matchMedia("(pointer:fine)").matches && !reduce){
+    document.body.classList.add("has-cursor");
+    var cur=document.getElementById("cur"), curR=document.getElementById("curR");
+    var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    window.addEventListener("mousemove",function(e){ mx=e.clientX; my=e.clientY;
+      cur.style.transform="translate("+mx+"px,"+my+"px) translate(-50%,-50%)"; });
+    (function loop(){ rx+=(mx-rx)*.18; ry+=(my-ry)*.18;
+      curR.style.transform="translate("+rx+"px,"+ry+"px) translate(-50%,-50%)"; requestAnimationFrame(loop); })();
+    var grow=function(){curR.classList.add("grow");}, shrink=function(){curR.classList.remove("grow");};
+    document.querySelectorAll("a,button,[data-cur]").forEach(function(el){
+      el.addEventListener("mouseenter",grow); el.addEventListener("mouseleave",shrink); });
   }
-  window.addEventListener("scroll", onScroll, {passive:true});
-  onScroll();
 
-  /* ---- Scroll reveals ---- */
-  var revealIO = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add("in"); revealIO.unobserve(e.target); }
-    });
-  }, {threshold:0.16, rootMargin:"0px 0px -8% 0px"});
-  document.querySelectorAll(".reveal").forEach(function(el){ revealIO.observe(el); });
+  /* ---- SCROLL PROGRESS ---- */
+  var prog=document.getElementById("prog");
+  /* ---- NAV + MOBILE CTA ---- */
+  var nav=document.getElementById("nav"), mcta=document.getElementById("mcta");
+  function onScroll(){
+    var y=window.scrollY||window.pageYOffset;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    if(prog) prog.style.width=(h>0?(y/h*100):0)+"%";
+    nav.classList.toggle("scrolled",y>40);
+    if(mcta) mcta.classList.toggle("show",y>window.innerHeight*0.6);
+  }
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
 
-  /* ---- Number counters ---- */
+  /* ---- REVEALS (reveal + lineup) ---- */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+  },{threshold:0.16,rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".reveal,.lineup").forEach(function(el){ io.observe(el); });
+
+  /* ---- COUNTERS ---- */
+  function suf(s){return '<span class="suf">'+s+'</span>';}
+  function fmt(n,to){ return to>=1000?Math.round(n).toLocaleString("en-US"):Math.round(n).toString(); }
   function animateCount(el){
-    var to = parseFloat(el.getAttribute("data-to"));
-    var suffix = el.getAttribute("data-suffix") || "";
-    if(reduce){ el.textContent = format(to) + ""; el.insertAdjacentHTML("beforeend", suf(suffix)); return; }
-    var dur = 1600, start = null;
-    function format(n){
-      if(to >= 1000) return Math.round(n).toLocaleString("en-US");
-      return Math.round(n).toString();
-    }
-    function suf(s){ return '<span class="suf">'+s+'</span>'; }
-    function step(ts){
-      if(!start) start = ts;
-      var p = Math.min((ts-start)/dur,1);
-      var eased = 1 - Math.pow(1-p,3);
-      el.innerHTML = format(to*eased) + suf(suffix);
-      if(p<1) requestAnimationFrame(step);
-    }
+    var to=parseFloat(el.getAttribute("data-to")), s=el.getAttribute("data-suffix")||"";
+    if(reduce){ el.innerHTML=fmt(to,to)+suf(s); return; }
+    var dur=1700,t0=null;
+    function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var e=1-Math.pow(1-p,3);
+      el.innerHTML=fmt(to*e,to)+suf(s); if(p<1)requestAnimationFrame(step); }
     requestAnimationFrame(step);
   }
-  var countIO = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ animateCount(e.target); countIO.unobserve(e.target); }
-    });
-  }, {threshold:0.6});
-  document.querySelectorAll(".count").forEach(function(el){ countIO.observe(el); });
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ animateCount(e.target); cio.unobserve(e.target);} });
+  },{threshold:0.6});
+  document.querySelectorAll(".count").forEach(function(el){ cio.observe(el); });
 
-  /* ---- Sticky phone: switch screens based on which step is centred ---- */
-  var steps = Array.prototype.slice.call(document.querySelectorAll(".step"));
-  var screens = Array.prototype.slice.call(document.querySelectorAll("#screens .scr"));
+  /* ---- STICKY PHONE: switch screens by active step ---- */
+  var steps=[].slice.call(document.querySelectorAll(".step"));
+  var screens=[].slice.call(document.querySelectorAll("#screens .scr"));
   function setActive(i){
-    screens.forEach(function(s,idx){ s.classList.toggle("active", idx===i); });
-    steps.forEach(function(s,idx){ s.classList.toggle("on", idx===i); });
+    screens.forEach(function(s,idx){ s.classList.toggle("active",idx===i); });
+    steps.forEach(function(s,idx){ s.classList.toggle("on",idx===i); });
   }
   if(steps.length && screens.length){
-    var stepIO = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          var i = parseInt(e.target.getAttribute("data-step"),10);
-          setActive(i);
-        }
-      });
-    }, {threshold:0.5, rootMargin:"-20% 0px -20% 0px"});
-    steps.forEach(function(s){ stepIO.observe(s); });
+    var sio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ setActive(parseInt(e.target.getAttribute("data-step"),10)); } });
+    },{threshold:0.5,rootMargin:"-20% 0px -20% 0px"});
+    steps.forEach(function(s){ sio.observe(s); });
     setActive(0);
   }
 
-  /* ---- Magnetic CTAs (desktop, pointer:fine) ---- */
+  /* ---- MAGNETIC CTAs ---- */
   if(!reduce && window.matchMedia("(pointer:fine)").matches){
-    document.querySelectorAll(".hero .store, .final .store").forEach(function(btn){
-      btn.addEventListener("mousemove", function(ev){
-        var r = btn.getBoundingClientRect();
-        var x = (ev.clientX - r.left - r.width/2) * .25;
-        var y = (ev.clientY - r.top - r.height/2) * .35;
-        btn.style.transform = "translate("+x+"px,"+(y-2)+"px)";
-      });
-      btn.addEventListener("mouseleave", function(){ btn.style.transform = ""; });
+    document.querySelectorAll(".hero .store, .final .store, .nav-cta").forEach(function(btn){
+      btn.addEventListener("mousemove",function(ev){ var r=btn.getBoundingClientRect();
+        var x=(ev.clientX-r.left-r.width/2)*.25, y=(ev.clientY-r.top-r.height/2)*.35;
+        btn.style.transform="translate("+x+"px,"+(y-2)+"px)"; });
+      btn.addEventListener("mouseleave",function(){ btn.style.transform=""; });
     });
   }
 
-  /* ---- Hero parallax (subtle) ---- */
+  /* ---- HERO PARALLAX (bg + orbs) ---- */
   if(!reduce){
-    var bg = document.querySelector(".hero-bg");
-    window.addEventListener("scroll", function(){
-      var y = window.scrollY;
-      if(y < window.innerHeight && bg){ bg.style.transform = "translateY("+(y*0.18)+"px)"; }
-    }, {passive:true});
+    var bg=document.querySelector(".hero-bg"), orbs=[].slice.call(document.querySelectorAll(".orb"));
+    window.addEventListener("scroll",function(){
+      var y=window.scrollY;
+      if(y<window.innerHeight){
+        if(bg) bg.style.transform="translateY("+(y*0.16)+"px)";
+        orbs.forEach(function(o){ var s=parseFloat(o.getAttribute("data-orb"))||0; o.style.transform="translateY("+(y*s*3)+"px)"; });
+      }
+    },{passive:true});
   }
 
-  /* ---- Hero word stagger timing (set per-word delay) ---- */
-  document.querySelectorAll("#heroH1 .w > span").forEach(function(span,i){
-    span.style.animationDelay = (0.15 + i*0.075) + "s";
-  });
+  /* ---- HERO WORD STAGGER timing ---- */
+  document.querySelectorAll("#heroH1 .w > span").forEach(function(sp,i){ sp.style.animationDelay=(0.15+i*0.07)+"s"; });
 
-  /* ---- Video placeholder click feedback ---- */
-  var vf = document.querySelector(".video-frame");
-  if(vf){
-    function poke(){ vf.style.transition="transform .2s"; vf.style.transform="scale(.99)";
-      setTimeout(function(){vf.style.transform="";},180); }
-    vf.addEventListener("click", poke);
-    vf.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); poke(); } });
+  /* ---- smooth anchor scroll ---- */
+  doc.classList.add("lenis-ready");
+
+  /* ---- VIDEO placeholder feedback ---- */
+  var vf=document.querySelector(".video-frame");
+  if(vf){ var poke=function(){ vf.style.transition="transform .2s"; vf.style.transform="scale(.99)";
+      setTimeout(function(){vf.style.transform="";},180); };
+    vf.addEventListener("click",poke);
+    vf.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); poke(); } });
   }
 })();
 </script>
